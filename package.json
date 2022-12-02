@@ -4,8 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js"
+    "build": "babel app.js --out-dir build",
+    "start": "nodemon --exec babel-node app.js",
+    "coverage": "nyc npm test",
+    "report": "nyc report --reporter=lcov",
+    "test-coverage-report": "npm run coverage && npm run report && npm run coveralls",
+    "test": "nyc --reporter=html --reporter=text mocha --require @babel/register --recursive --no-timeout --exit test/*js || true",
+    "coveralls": "nyc report --reporter=text-lcov | coveralls"
   },
   "repository": {
     "type": "git",
@@ -18,7 +23,15 @@
   },
   "homepage": "https://github.com/LisaHJung/MySQL-Node.js-Tutorial#readme",
   "dependencies": {
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.5",
+    "@babel/node": "^7.4.5",
+    "@babel/polyfill": "^7.4.4",
+    "@babel/preset-env": "^7.12.1",
+    "@babel/register": "^7.4.4",
+    "@types/multer": "^1.4.7",
     "body-parser": "^1.19.0",
+    "dotenv": "^16.0.3",
     "express": "^4.17.1",
     "mysql": "^2.18.1"
   },
