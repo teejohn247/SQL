@@ -3,11 +3,11 @@ import mysqlConnection from "../config/database";
 
 
 
-const fetchPosts = async (req, res) => {
+const fetchCategories = async (req, res) => {
     try{
 
         mysqlConnection.query(
-            "SELECT * FROM wp_posts",
+            "SELECT * FROM wp_sickness_categories",
             (err, results, fields) => {
               if (!err) {
                 res.send(results);
@@ -26,4 +26,4 @@ const fetchPosts = async (req, res) => {
     }
 };
 
-export default fetchPosts;
+export default fetchCategories;
