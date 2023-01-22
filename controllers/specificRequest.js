@@ -1,24 +1,17 @@
 
 import mysqlConnection from "../config/database";
 
-
-
 const specificRequest = async (req, res) => {
     try{
-
         mysqlConnection.query(
             `SELECT * FROM wp_wpforms_entries WHERE form_id = ${585} AND entry_id = ${req.params.id}`,
             (err, results, fields) => {
 
               if (!err) {
-
-
-
+              
                 var tot=[];
 
                    results.map((result, index) => {
-
-                    console.log(result.date)
 
                   let resp = result.fields.replace(/\*/g,"")
                   console.log(resp)
@@ -46,8 +39,7 @@ const specificRequest = async (req, res) => {
     
                 })
 
-
-                res.send(tot);
+                res.status(200).send(tot);
               } else {
                 console.log(err);
               }

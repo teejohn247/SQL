@@ -2,9 +2,6 @@ import mysql from "mysql";
 import express from "express";
 import bodyParser from "body-parser";
 import qbRoutes from "./routes/ailments";
-
-
-
 import dotenv from 'dotenv';
 import Debug from 'debug';
 import logger from 'morgan';

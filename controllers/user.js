@@ -1,7 +1,4 @@
-
 import mysqlConnection from "../config/database";
-
-
 
 const user = async (req, res) => {
     try{
@@ -12,8 +9,6 @@ const user = async (req, res) => {
             `SELECT * FROM users WHERE email ="${email}"`,
             (err, results, fields) => {
 
-                console.log(results)
-
               if (!err) {
 
                 if(results.length > 0){
@@ -23,17 +18,12 @@ const user = async (req, res) => {
                         data: results
                     })
                 }else{
-
                     res.status(400).json({
                         status: 400,
                         success: false,
                         data: "Invalid Token"
                     })
-
-                }
-
-                
-
+                }   
               } else {
 
                 res.status(500).json({

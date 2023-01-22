@@ -1,11 +1,7 @@
-
 import mysqlConnection from "../config/database";
-
-
 
 const updateStatus = async (req, res) => {
     try{
-
         const { entry_id, status} = req.body;
 
         mysqlConnection.query(
@@ -22,14 +18,13 @@ const updateStatus = async (req, res) => {
                         data: results
                     })
               } else {
-
                 res.status(500).json({
                     status: 500,
                     success: false,
                     error: err
                 })
 
-              }
+             }
             }
         );
 

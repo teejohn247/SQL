@@ -1,12 +1,7 @@
-
 import mysqlConnection from "../config/database";
-
-
 
 const createCategories = async (req, res) => {
     try{
-
-
         const { category_name } = req.body;
 
         const sql = `INSERT INTO wp_sickness_categories ( category_name ) VALUES ( "${category_name}" )`;
@@ -19,7 +14,6 @@ const createCategories = async (req, res) => {
                 })
                 return;
             } else{
-                console.log(result)
                 res.status(200).json({
                     status: 200,
                     success: true,
