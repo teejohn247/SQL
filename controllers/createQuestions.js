@@ -1,12 +1,7 @@
-
 import mysqlConnection from "../config/database";
-
-
 
 const createQuestions = async (req, res) => {
     try{
-
-
         const { category_id, question, options, options_type } = req.body;
 
         let category;
@@ -22,14 +17,12 @@ const createQuestions = async (req, res) => {
                     success: false,
                     error: err
                 })
-
               }
             }
         );
 
         const sql = `INSERT INTO wp_questions ( category_id, question) VALUES ( ${category_id}, "${question}" )`;
         mysqlConnection.query(sql, function (err, result) {
-            console.log('err')
             if (err) {
                 res.status(400).json({
                     status: 400,
@@ -45,9 +38,6 @@ const createQuestions = async (req, res) => {
                     all_options.push([result.insertId, option, options_type])
                 })
 
-              
-
-
                 let que = `INSERT INTO question_options (question_id, options, option_type) VALUES ? `;
                
                 mysqlConnection.query(que, [all_options], function (err, result) {
@@ -58,16 +48,14 @@ const createQuestions = async (req, res) => {
                             error: err
                         })
                         return;
-                } else{
-                    res.status(200).json({
-                        status: 200,
-                        success: true,
-                        data: result
-                    })
-                }
-            })
-
-            
+                    } else{
+                        res.status(200).json({
+                            status: 200,
+                            success: true,
+                            data: result
+                        })
+                    }
+                })
             }
         })
 

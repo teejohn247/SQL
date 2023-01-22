@@ -5,7 +5,6 @@ import mysqlConnection from "../config/database";
 
 const signin = async (req, res) => {
     try{
-
         const { email, password } = req.body;
 
         mysqlConnection.query(
@@ -13,7 +12,6 @@ const signin = async (req, res) => {
             (err, results, fields) => {
 
               if (!err) {
-
                 if(results.length > 0){
                     res.status(200).json({
                         status: 200,
@@ -29,11 +27,7 @@ const signin = async (req, res) => {
                     })
 
                 }
-
-                
-
               } else {
-
                 res.status(500).json({
                     status: 500,
                     success: false,

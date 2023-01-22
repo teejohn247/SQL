@@ -5,7 +5,6 @@ import mysqlConnection from "../config/database";
 
 const fetchUsers = async (req, res) => {
     try{
-
         mysqlConnection.query(
             `SELECT * FROM wp_wpforms_entries WHERE form_id = ${531}`,
             (err, results, fields) => {
@@ -13,7 +12,6 @@ const fetchUsers = async (req, res) => {
                 var tot= []
 
                 results.map((result, index) => {
-                //   console.log(result.fields)
                   let resp = result.fields.replace(/\*/g,"")
                   let tt = Object.values(JSON.parse(resp))
                 //   tot.push(Object.values(JSON.parse(resp)))
@@ -27,8 +25,6 @@ const fetchUsers = async (req, res) => {
                     tot.push(resv)
     
                 })
-
-
                 res.send(tot);
               } else {
                 console.log(err);

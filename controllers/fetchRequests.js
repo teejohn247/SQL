@@ -1,26 +1,21 @@
 
 import mysqlConnection from "../config/database";
 
-
-
 const fetchRequests = async (req, res) => {
     try{
-
         mysqlConnection.query(
             `SELECT * FROM wp_wpforms_entries WHERE form_id = ${585}`,
             (err, results, fields) => {
 
               if (!err) {
 
-
-
                 var tot=[];
 
-                   results.map((result, index) => {
+                results.map((result, index) => {
 
 
                   let resp = result.fields.replace(/\*/g,"")
-                  console.log(resp)
+            
                   let tt = Object.values(JSON.parse(resp))
                   tt.push({
                     name: "date",
@@ -34,7 +29,6 @@ const fetchRequests = async (req, res) => {
                             name: "status",
                             value:result.status})
                     //   tot.push(Object.values(JSON.parse(resp)))
-
 
 
                     const resv = tt.reduce((acc, {name, value, id}) => ({ // obtain the kys from the current object using destructuring assignment
