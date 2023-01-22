@@ -1,0 +1,225 @@
+// color variants
+@import 'themes-vars.module.scss';
+
+// third-party
+@import '~react-perfect-scrollbar/dist/css/styles.css';
+
+// ==============================|| LIGHT BOX ||============================== //
+.fullscreen .react-images__blanket {
+    z-index: 1200;
+}
+
+.css-q8hpuo-MuiFormControl-root{
+    margin-bottom: 20px;
+}
+
+// ==============================|| APEXCHART ||============================== //
+
+.apexcharts-legend-series .apexcharts-legend-marker {
+    margin-right: 8px;
+}
+
+.MuiPaper-root.MuiPaper-elevation.MuiPaper-elevation0.MuiDrawer-paper.MuiDrawer-paperAnchorLeft.MuiDrawer-paperAnchorDockedLeft.css-b719xv-MuiPaper-root-MuiDrawer-paper{
+    z-index: 0 !important;
+}
+
+.css-x5zaxz{
+    justify-content: space-between;
+}
+
+.css-1ekpao7-MuiPaper-root-MuiAppBar-root{
+    height: 80px;
+}
+
+.css-1xjnmv-MuiChip-root{
+    background-color: #2E758C;
+    color:white;
+}
+
+.MuiTabs-flexContainer.css-heg063-MuiTabs-flexContainer{
+    background-color: #2E758C;
+}
+
+.css-h8lmxw-MuiPaper-root-MuiCard-root{
+    border: none;
+    // box-shadow: 0 4px 8px rgba(0,0,0,0.19);
+}
+
+.css-919fip-MuiGrid-root{
+    margin-bottom: -30px;
+}
+
+button.MuiButtonBase-root.MuiTab-root.MuiTab-textColorPrimary.css-13xc10z-MuiButtonBase-root-MuiTab-root{
+    color: white;
+}
+.css-17y07zo{
+    width: 100%;
+}
+
+a{
+    color: black !important;
+    text-decoration: none !important;
+}
+
+.css-w8htwj-MuiButtonBase-root-MuiTab-root.Mui-selected{
+    background-color: #FA3D02;
+}
+
+.MuiBackdrop-root.css-i9fmh8-MuiBackdrop-root-MuiModal-backdrop{
+    z-index: 999 !important;
+}
+
+.MuiGrid-root.MuiGrid-item.css-3fd9z3-MuiGrid-root{
+    z-index: 2999 !important;
+
+}
+
+li{
+    list-style: none !important;
+}
+
+.css-1bm7xwj-MuiPaper-root-MuiCard-root{
+    background: #34a8cc;
+}
+
+h6.MuiTypography-root.MuiTypography-subtitle1.css-bkrose-MuiTypography-root, span.MuiTypography-root.MuiTypography-caption.css-fvda48-MuiTypography-root{
+    color: whitesmoke;
+
+}
+
+.css-1bm7xwj-MuiPaper-root-MuiCard-root:after{
+    background: #3a7d91;
+}
+// ==============================|| PERFECT SCROLLBAR ||============================== //
+
+.scrollbar-container {
+    .ps__rail-y {
+        &:hover > .ps__thumb-y,
+        &:focus > .ps__thumb-y,
+        &.ps--clicking .ps__thumb-y {
+            background-color: $grey500;
+            width: 5px;
+        }
+    }
+    .ps__thumb-y {
+        background-color: $grey500;
+        border-radius: 6px;
+        width: 5px;
+        right: 0;
+    }
+}
+
+.scrollbar-container.ps,
+.scrollbar-container > .ps {
+    &.ps--active-y > .ps__rail-y {
+        width: 5px;
+        background-color: transparent !important;
+        z-index: 999;
+        &:hover,
+        &.ps--clicking {
+            width: 5px;
+            background-color: transparent;
+        }
+    }
+    &.ps--scrolling-y > .ps__rail-y,
+    &.ps--scrolling-x > .ps__rail-x {
+        opacity: 0.4;
+        background-color: transparent;
+    }
+}
+
+@font-face {
+    font-family: "Light";   /*Can be any text*/
+    src: local("Brown-Bold"),
+      url("../../font/Brown-RegularAlt.ttf") format("truetype");
+  }
+
+  body{
+    font-family: "Light" !important;
+  }
+
+// ==============================|| ANIMATION KEYFRAMES ||============================== //
+
+@keyframes wings {
+    50% {
+        transform: translateY(-40px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+
+fieldset.MuiOutlinedInput-notchedOutline.css-14qh0u1-MuiOutlinedInput-notchedOutline{
+    border-radius: 20px;
+}
+
+div#\:r3\:{
+    padding: 10px !important;
+}
+
+input#filled-select-currency {
+    padding: 10px !important;
+}
+@keyframes bounce {
+    0%,
+    20%,
+    53%,
+    to {
+        animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+        transform: translateZ(0);
+    }
+    40%,
+    43% {
+        animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+        transform: translate3d(0, -5px, 0);
+    }
+    70% {
+        animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+        transform: translate3d(0, -7px, 0);
+    }
+    80% {
+        transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+        transform: translateZ(0);
+    }
+    90% {
+        transform: translate3d(0, -2px, 0);
+    }
+}
+
+@keyframes slideY {
+    0%,
+    50%,
+    100% {
+        transform: translateY(0px);
+    }
+    25% {
+        transform: translateY(-10px);
+    }
+    75% {
+        transform: translateY(10px);
+    }
+}
+
+@keyframes slideX {
+    0%,
+    50%,
+    100% {
+        transform: translateX(0px);
+    }
+    25% {
+        transform: translateX(-10px);
+    }
+    75% {
+        transform: translateX(10px);
+    }
+}

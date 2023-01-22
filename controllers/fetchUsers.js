@@ -3,18 +3,16 @@ import mysqlConnection from "../config/database";
 
 
 
-const fetchCategories = async (req, res) => {
+const fetchUsers = async (req, res) => {
     try{
 
         mysqlConnection.query(
-            `SELECT * FROM wp_wpforms_entries WHERE form_id = ${585}`,
+            `SELECT * FROM wp_wpforms_entries WHERE form_id = ${531}`,
             (err, results, fields) => {
               if (!err) {
+                var tot= []
 
-
-                var tot=[];
-
-                   results.map((result, index) => {
+                results.map((result, index) => {
                 //   console.log(result.fields)
                   let resp = result.fields.replace(/\*/g,"")
                   let tt = Object.values(JSON.parse(resp))
@@ -29,6 +27,7 @@ const fetchCategories = async (req, res) => {
                     tot.push(resv)
     
                 })
+
 
                 res.send(tot);
               } else {
@@ -46,4 +45,4 @@ const fetchCategories = async (req, res) => {
     }
 };
 
-export default fetchCategories;
+export default fetchUsers;

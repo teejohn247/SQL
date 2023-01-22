@@ -27,7 +27,7 @@ const createQuestions = async (req, res) => {
             }
         );
 
-        const sql = `INSERT INTO wp_questions ( category_id, category, question) VALUES ( ${category_id}, "${category}", "${question}" )`;
+        const sql = `INSERT INTO wp_questions ( category_id, question) VALUES ( ${category_id}, "${question}" )`;
         mysqlConnection.query(sql, function (err, result) {
             console.log('err')
             if (err) {
@@ -38,7 +38,6 @@ const createQuestions = async (req, res) => {
                 })
                 return;
             } else{
-                console.log(result)
 
                 let all_options = []
 
@@ -46,8 +45,7 @@ const createQuestions = async (req, res) => {
                     all_options.push([result.insertId, option, options_type])
                 })
 
-                console.log({all_options})
-                console.log([...all_options])
+              
 
 
                 let que = `INSERT INTO question_options (question_id, options, option_type) VALUES ? `;
