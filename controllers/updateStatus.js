@@ -9,10 +9,8 @@ const updateStatus = async (req, res) => {
         const { entry_id, status} = req.body;
 
         mysqlConnection.query(
-            `UPDATE wp_wpforms_entries SET status="${status}" WHERE form_id = ${585} AND entry_id= ${entry_id}`,
+            `UPDATE wp_wpforms_entries SET prescription_status="${status}" WHERE form_id = ${671} AND entry_id= ${entry_id}`,
             (err, results, fields) => {
-
-                console.log(results)
 
               if (!err) {
 

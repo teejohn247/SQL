@@ -7,7 +7,7 @@ const specificRequest = async (req, res) => {
     try{
 
         mysqlConnection.query(
-            `SELECT * FROM wp_wpforms_entries WHERE form_id = ${585} AND entry_id = ${req.params.id}`,
+            `SELECT * FROM wp_wpforms_entries WHERE form_id = ${671} AND entry_id = ${req.params.id}`,
             (err, results, fields) => {
 
               if (!err) {
@@ -18,10 +18,8 @@ const specificRequest = async (req, res) => {
 
                    results.map((result, index) => {
 
-                    console.log(result.date)
 
                   let resp = result.fields.replace(/\*/g,"")
-                  console.log(resp)
                   let tt = Object.values(JSON.parse(resp))
                   tt.push({
                     name: "date",
@@ -33,7 +31,7 @@ const specificRequest = async (req, res) => {
 
                         tt.push({
                             name: "status",
-                            value:result.status})
+                            value:result.prescription_status})
                     //   tot.push(Object.values(JSON.parse(resp)))
                     const resv = tt.reduce((acc, {name, value, id}) => ({ // obtain the kys from the current object using destructuring assignment
                     ...acc, // merge the current object stored in acc into the current object `{}` we're building

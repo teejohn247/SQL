@@ -7,7 +7,7 @@ const fetchRequests = async (req, res) => {
     try{
 
         mysqlConnection.query(
-            `SELECT * FROM wp_wpforms_entries WHERE form_id = ${585}`,
+            `SELECT * FROM wp_wpforms_entries WHERE form_id = ${671}`,
             (err, results, fields) => {
 
               if (!err) {
@@ -20,7 +20,6 @@ const fetchRequests = async (req, res) => {
 
 
                   let resp = result.fields.replace(/\*/g,"")
-                  console.log(resp)
                   let tt = Object.values(JSON.parse(resp))
                   tt.push({
                     name: "date",
@@ -32,7 +31,7 @@ const fetchRequests = async (req, res) => {
 
                         tt.push({
                             name: "status",
-                            value:result.status})
+                            value:result.prescription_status})
                     //   tot.push(Object.values(JSON.parse(resp)))
 
 

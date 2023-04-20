@@ -7,7 +7,7 @@ const fetchUsers = async (req, res) => {
     try{
 
         mysqlConnection.query(
-            `SELECT * FROM wp_wpforms_entries WHERE form_id = ${531}`,
+            `SELECT * FROM wp_wpforms_entries WHERE form_id = ${671}`,
             (err, results, fields) => {
               if (!err) {
                 var tot= []

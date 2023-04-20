@@ -12,8 +12,6 @@ const user = async (req, res) => {
             `SELECT * FROM users WHERE email ="${email}"`,
             (err, results, fields) => {
 
-                console.log(results)
-
               if (!err) {
 
                 if(results.length > 0){
